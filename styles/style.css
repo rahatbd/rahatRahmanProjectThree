@@ -269,5 +269,40 @@ header {
 
 .tiles span {
   border: 1px solid black;
+}
+
+.tiles .tile.black {
   background-color: black;
+}
+
+.tiles .gold {
+  background-color: gold;
+}
+
+.tiles .magenta {
+  background-color: magenta;
+}
+
+.tiles .deeppink {
+  background-color: deeppink;
+}
+
+.tiles .darkorange {
+  background-color: darkorange;
+}
+
+.tiles .crimson {
+  background-color: crimson;
+}
+
+.tiles .darkgreen {
+  background-color: darkgreen;
+}
+
+.tiles .darkturquoise {
+  background-color: darkturquoise;
+}
+
+.tiles .cornflowerblue {
+  background-color: cornflowerblue;
 }
