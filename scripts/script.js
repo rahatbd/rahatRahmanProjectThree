@@ -10,14 +10,16 @@ tilesApp.setColours = function() {
     for (let i=0; i<16; i++) {
         $(`#${i}`).on('click', function() {
             $(this).removeClass('black');
-            tilesApp.clickCount++;
             const colour = $(this).data('colour');
             const thisID = $(this).attr('id');
-            tilesApp.spanColour.push(colour);
-            tilesApp.spanID.push(thisID);
-            console.log('Listener', tilesApp.clickCount);
-            console.log('Listener', tilesApp.spanColour);
-            console.log('Listener', tilesApp.spanID);
+            if (thisID !== tilesApp.spanID[0] && thisID !== tilesApp.spanID[1]) {
+                tilesApp.clickCount++;
+                tilesApp.spanColour.push(colour);
+                tilesApp.spanID.push(thisID);
+            }
+            console.log('ListenerClick', tilesApp.clickCount);
+            console.log('ListenerSpanColour', tilesApp.spanColour);
+            console.log('ListenerSpanID', tilesApp.spanID);
             tilesApp.matchCheck();
         })
     }
@@ -40,8 +42,6 @@ tilesApp.matchCheck = () => {
             console.log('Check', tilesApp.spanColour);
             console.log('Check', tilesApp.spanID);
         }, 200)
-    } else {
-        // $(`#${tilesApp.spanID[0]}`).off('click');
     }
 }
 
