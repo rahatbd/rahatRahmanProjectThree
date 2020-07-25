@@ -231,6 +231,17 @@ body, h1, h2, p {
   padding: 0;
 }
 
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 2rem;
+  font-family: 'Fredericka the Great', cursive;
+  background: -webkit-gradient(linear, left top, right top, from(darkorange), to(gold));
+  background: linear-gradient(to right, darkorange, gold);
+}
+
 .wrapper {
   max-width: 1400px;
   width: 90%;
@@ -239,8 +250,8 @@ body, h1, h2, p {
 
 header {
   height: 10vh;
-  background-color: black;
-  color: white;
+  background-color: crimson;
+  color: gold;
   text-transform: uppercase;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -251,7 +262,10 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 50px;
+}
+
+h1 {
+  letter-spacing: 20px;
 }
 
 .tiles {
@@ -265,14 +279,11 @@ header {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 40px;
-}
-
-.tiles span {
-  border: 1px solid black;
+  margin: 40px auto;
 }
 
 .tiles .tile.black {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .tiles .gold {
@@ -305,4 +316,18 @@ header {
 
 .tiles .cornflowerblue {
   background-color: cornflowerblue;
+}
+
+footer {
+  background-color: crimson;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+}
+
+footer p {
+  text-align: center;
+  color: gold;
+  letter-spacing: 2px;
 }

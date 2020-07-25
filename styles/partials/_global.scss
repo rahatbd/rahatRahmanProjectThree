@@ -4,6 +4,16 @@ body, h1, h2, p {
     padding: 0;
 }
 
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 2rem;
+    font-family: 'Fredericka the Great', cursive;
+    background: linear-gradient(to right, darkorange, gold);
+}
+
 .wrapper {
     max-width: 1400px;
     width: 90%;
@@ -12,14 +22,17 @@ body, h1, h2, p {
 
 header {
     height: 10vh;
-    background-color: black;
-    color: white;
+    background-color: crimson;
+    // use variable
+    color: gold;
     text-transform: uppercase;
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
-    margin-bottom: 50px;
+h1 {
+    letter-spacing: 20px;
 }
 
 .tiles {
@@ -29,14 +42,15 @@ header {
     justify-content: center;
     // align-content: center;
     gap: 40px;
+    margin: 40px auto;
 
     span {
-        border: 1px solid black;
+        // border: 1px solid white;
         // background-color: black;
     }
 
     .tile.black {
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.7);
     }
 
     .gold {
@@ -69,5 +83,20 @@ header {
 
     .cornflowerblue {
         background-color: cornflowerblue;
+    }
+}
+
+footer {
+    background-color: crimson;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+
+    p {
+        text-align: center;
+        // use variable
+        color: gold;
+        letter-spacing: 2px;
     }
 }
