@@ -11,6 +11,10 @@ body {
     font-size: 2rem;
     font-family: 'Fredericka the Great', cursive;
     background: linear-gradient(to right, darkorange, gold);
+
+    position: relative;
+    // border: 5px solid red;
+    min-height: 100vh;
 }
 
 .wrapper {
@@ -39,13 +43,14 @@ header {
     @include textStyle;
     // letter-spacing: 3px;
     // position: absolute;
-    top: 25%;
+    // top: 25%;
     // left: 5%;
     // width: 20%;
     // border: 1px solid green;
 
     p {
-        width: 55%;
+        // width: 55%;
+
         // border-bottom: 2px solid black;
     }
 
@@ -112,7 +117,8 @@ header {
     // border: 1px solid green;
 
     p {
-        width: 73%;
+        // width: 73%;
+
         // border-bottom: 2px solid black;
     }
 

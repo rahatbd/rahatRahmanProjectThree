@@ -1,0 +1,64 @@
+@media (max-width: 1250px) {
+    .text {
+        // position: static;
+        // width: 60%;
+        margin-top: 40px;
+        border: 0.5px dotted black;
+        @include mediaStyle;
+
+        p {
+            // width: 25%;
+            // text-align: center;
+            // text-decoration: none;
+            // border-bottom: 2px solid black;
+            // margin: 0 auto;
+        }
+
+        ol {
+            padding-left: 30px;
+        }
+    }
+
+    //add mixins
+    .congrats {
+        // position: static;
+        // width: 60%;
+        margin-bottom: 40px;
+        // border: 0.5px dotted black;
+        @include mediaStyle;
+
+        p {
+            // width: 30%;
+            // text-align: center;
+            // text-decoration: none;
+            // border-bottom: 2px solid black;
+            // margin: 0 auto;
+        }
+
+        ol {
+            // padding-left: 30px;
+            text-align: center;
+        }
+    }
+
+    footer {
+        position: static;
+    }
+}
+
+@media (max-width: 700px) {
+    .tiles {
+        grid-template-columns: repeat(2, 120px);
+        grid-template-rows: repeat(8, 120px);
+    }
+}
+
+@media (max-width: 320px) {
+    .tiles {
+        gap: 0;
+    }
+
+    .text, .congrats {
+        display: none;
+    }
+}

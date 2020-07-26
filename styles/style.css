@@ -240,6 +240,8 @@ body {
   font-family: 'Fredericka the Great', cursive;
   background: -webkit-gradient(linear, left top, right top, from(darkorange), to(gold));
   background: linear-gradient(to right, darkorange, gold);
+  position: relative;
+  min-height: 100vh;
 }
 
 .wrapper {
@@ -263,23 +265,19 @@ header h1 {
 .text {
   letter-spacing: 3px;
   position: absolute;
+  top: 25%;
   left: 5%;
   width: 20%;
-  top: 25%;
 }
 
 .text p {
-  border-bottom: 2px solid black;
+  text-decoration: underline;
 }
 
 .text li {
   list-style-position: inside;
   list-style-type: square;
   margin: 10px 0;
-}
-
-.text p {
-  width: 55%;
 }
 
 .tiles {
@@ -337,23 +335,20 @@ header h1 {
 .congrats {
   letter-spacing: 3px;
   position: absolute;
+  top: 25%;
   left: 5%;
   width: 20%;
   top: 50%;
 }
 
 .congrats p {
-  border-bottom: 2px solid black;
+  text-decoration: underline;
 }
 
 .congrats li {
   list-style-position: inside;
   list-style-type: square;
   margin: 10px 0;
-}
-
-.congrats p {
-  width: 73%;
 }
 
 .congrats span {
@@ -618,5 +613,52 @@ footer p {
   }
   99.62% {
     opacity: 1;
+  }
+}
+
+@media (max-width: 1250px) {
+  .text {
+    margin-top: 40px;
+    border: 0.5px dotted black;
+    position: static;
+    width: 60%;
+  }
+  .text p {
+    text-align: center;
+  }
+  .text ol {
+    padding-left: 30px;
+  }
+  .congrats {
+    margin-bottom: 40px;
+    position: static;
+    width: 60%;
+  }
+  .congrats p {
+    text-align: center;
+  }
+  .congrats ol {
+    text-align: center;
+  }
+  footer {
+    position: static;
+  }
+}
+
+@media (max-width: 700px) {
+  .tiles {
+    -ms-grid-columns: (120px)[2];
+        grid-template-columns: repeat(2, 120px);
+    -ms-grid-rows: (120px)[8];
+        grid-template-rows: repeat(8, 120px);
+  }
+}
+
+@media (max-width: 320px) {
+  .tiles {
+    gap: 0;
+  }
+  .text, .congrats {
+    display: none;
   }
 }
