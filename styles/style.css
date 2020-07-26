@@ -226,7 +226,7 @@ html {
   overflow: hidden;
 }
 
-body, h1, h2, p, ol {
+body, h1, p, ol {
   margin: 0;
   padding: 0;
 }
@@ -249,35 +249,26 @@ body {
 }
 
 header {
-  height: 10vh;
   background-color: crimson;
   color: gold;
-  text-transform: uppercase;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
-h1 {
+header h1 {
+  text-transform: uppercase;
   letter-spacing: 20px;
+  text-align: center;
+  padding: 15px 0;
 }
 
 .text {
   letter-spacing: 3px;
   position: absolute;
-  top: 25%;
   left: 5%;
   width: 20%;
+  top: 25%;
 }
 
 .text p {
-  width: 55%;
   border-bottom: 2px solid black;
 }
 
@@ -285,6 +276,10 @@ h1 {
   list-style-position: inside;
   list-style-type: square;
   margin: 10px 0;
+}
+
+.text p {
+  width: 55%;
 }
 
 .tiles {
@@ -297,6 +292,8 @@ h1 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   gap: 40px;
   margin: 40px auto;
 }
@@ -337,17 +334,43 @@ h1 {
   background-color: cornflowerblue;
 }
 
+.congrats {
+  letter-spacing: 3px;
+  position: absolute;
+  left: 5%;
+  width: 20%;
+  top: 50%;
+}
+
+.congrats p {
+  border-bottom: 2px solid black;
+}
+
+.congrats li {
+  list-style-position: inside;
+  list-style-type: square;
+  margin: 10px 0;
+}
+
+.congrats p {
+  width: 73%;
+}
+
+.congrats span {
+  text-transform: uppercase;
+}
+
 footer {
-  background-color: crimson;
   position: absolute;
   bottom: 0;
   width: 100%;
   padding: 10px 0;
+  background-color: crimson;
+  color: gold;
 }
 
 footer p {
   text-align: center;
-  color: gold;
   letter-spacing: 2px;
 }
 

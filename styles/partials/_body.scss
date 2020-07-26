@@ -1,5 +1,4 @@
-// check
-body, h1, h2, p, ol {
+body, h1, p, ol {
     margin: 0;
     padding: 0;
 }
@@ -21,38 +20,40 @@ body {
 }
 
 header {
-    height: 10vh;
-    background-color: crimson;
-    // use variable
-    color: gold;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    // min-height: 10vh;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    @include colourStyle;
+    
+    h1 {
+        text-transform: uppercase;
+        letter-spacing: 20px;
 
-h1 {
-    letter-spacing: 20px;
+        text-align: center;
+        padding: 15px 0;
+    }
 }
 
 .text {
-    letter-spacing: 3px;
-    position: absolute;
+    @include textStyle;
+    // letter-spacing: 3px;
+    // position: absolute;
     top: 25%;
-    left: 5%;
-    width: 20%;
+    // left: 5%;
+    // width: 20%;
     // border: 1px solid green;
 
     p {
         width: 55%;
-        border-bottom: 2px solid black;
+        // border-bottom: 2px solid black;
     }
 
-    li {
-        list-style-position: inside;
-        list-style-type: square;
-        margin: 10px 0;
-    }
+    // li {
+    //     list-style-position: inside;
+    //     list-style-type: square;
+    //     margin: 10px 0;
+    // }
 }
 
 .tiles {
@@ -60,14 +61,9 @@ h1 {
     grid-template-columns: repeat(4, 120px);
     grid-template-rows: repeat(4, 120px);
     justify-content: center;
-    // align-content: center;
+    align-content: center;
     gap: 40px;
     margin: 40px auto;
-
-    span {
-        // border: 1px solid white;
-        // background-color: black;
-    }
 
     .tile.black {
         background-color: rgba(0, 0, 0, 0.7);
@@ -106,17 +102,44 @@ h1 {
     }
 }
 
+.congrats {
+    @include textStyle;
+    // letter-spacing: 3px;
+    // position: absolute;
+    top: 50%;
+    // left: 5%;
+    // width: 20%;
+    // border: 1px solid green;
+
+    p {
+        width: 73%;
+        // border-bottom: 2px solid black;
+    }
+
+    span {
+        text-transform: uppercase;
+    }
+
+    li {
+        // list-style-position: inside;
+        // list-style-type: square;
+        // margin: 10px 0;
+
+    }
+}
+
 footer {
-    background-color: crimson;
+    // background-color: crimson;
     position: absolute;
     bottom: 0;
     width: 100%;
     padding: 10px 0;
+    @include colourStyle;
 
     p {
         text-align: center;
         // use variable
-        color: gold;
+        // color: gold;
         letter-spacing: 2px;
     }
 }

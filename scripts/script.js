@@ -2,9 +2,11 @@ const tilesApp = {};
 
 tilesApp.colours = ['gold', 'magenta', 'deeppink', 'darkorange', 'crimson', 'darkgreen', 'darkturquoise', 'cornflowerblue',
                     'gold', 'magenta', 'deeppink', 'darkorange', 'crimson', 'darkgreen', 'darkturquoise', 'cornflowerblue'];
+
 tilesApp.spanColour = [];
 tilesApp.spanID = [];
 tilesApp.clickCount = 0;
+tilesApp.matchCount = 0;
 
 tilesApp.setColours = function() {
     for (let i=0; i<16; i++) {
@@ -17,9 +19,9 @@ tilesApp.setColours = function() {
                 tilesApp.spanColour.push(colour);
                 tilesApp.spanID.push(thisID);
             }
-            console.log('ListenerClick', tilesApp.clickCount);
-            console.log('ListenerSpanColour', tilesApp.spanColour);
-            console.log('ListenerSpanID', tilesApp.spanID);
+            // console.log('ListenerClick', tilesApp.clickCount);
+            // console.log('ListenerSpanColour', tilesApp.spanColour);
+            // console.log('ListenerSpanID', tilesApp.spanID);
             tilesApp.matchCheck();
         })
     }
@@ -34,14 +36,28 @@ tilesApp.matchCheck = () => {
             } else {
                 $(`#${tilesApp.spanID[0]}`).off('click');
                 $(`#${tilesApp.spanID[1]}`).off('click');
+                tilesApp.matchCount++;
+                tilesApp.matchComplete();
             }
             tilesApp.spanColour = [];
             tilesApp.spanID = [];
             tilesApp.clickCount = 0;
-            console.log('Check', tilesApp.clickCount);
-            console.log('Check', tilesApp.spanColour);
-            console.log('Check', tilesApp.spanID);
+            // console.log('Check', tilesApp.clickCount);
+            // console.log('Check', tilesApp.spanColour);
+            // console.log('Check', tilesApp.spanID);
         }, 200)
+    }
+}
+
+tilesApp.matchComplete = () => {
+    if (tilesApp.matchCount === 8) {
+        $('.congrats').html(`
+        <p>Congratulations!</p>
+        <ol>
+            <li>You have matched the tiles.</li>
+            <li>Reload <span>tiles</span> to play again.</li>
+        </ol>
+        `);
     }
 }
 

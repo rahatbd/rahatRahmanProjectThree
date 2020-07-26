@@ -1,0 +1,23 @@
+@mixin colourStyle {
+    background-color: crimson;
+    color: gold;
+}
+
+@mixin textStyle {
+    letter-spacing: 3px;
+    position: absolute;
+    // top: 25%;
+    left: 5%;
+    width: 20%;
+    // border: 1px solid green;
+
+    p {
+        border-bottom: 2px solid black;
+    }
+
+    li {
+        list-style-position: inside;
+        list-style-type: square;
+        margin: 10px 0;
+    }
+}
