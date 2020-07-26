@@ -1,5 +1,5 @@
 // check
-body, h1, h2, p {
+body, h1, h2, p, ol {
     margin: 0;
     padding: 0;
 }
@@ -33,6 +33,26 @@ header {
 
 h1 {
     letter-spacing: 20px;
+}
+
+.text {
+    letter-spacing: 3px;
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    width: 20%;
+    // border: 1px solid green;
+
+    p {
+        width: 55%;
+        border-bottom: 2px solid black;
+    }
+
+    li {
+        list-style-position: inside;
+        list-style-type: square;
+        margin: 10px 0;
+    }
 }
 
 .tiles {
