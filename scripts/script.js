@@ -1,39 +1,52 @@
 const tilesApp = {};
 
-tilesApp.colours = ['gold', 'magenta', 'deeppink', 'darkorange', 'crimson', 'darkgreen', 'darkturquoise', 'cornflowerblue',
-                    'gold', 'magenta', 'deeppink', 'darkorange', 'crimson', 'darkgreen', 'darkturquoise', 'cornflowerblue'];
+tilesApp.coloursArray = ['gold', 'magenta', 'deeppink', 'darkorange', 'crimson', 'darkgreen', 'darkturquoise', 'cornflowerblue',
+                         'gold', 'magenta', 'deeppink', 'darkorange', 'crimson', 'darkgreen', 'darkturquoise', 'cornflowerblue'];
 
 tilesApp.spanColour = [];
 tilesApp.spanID = [];
 tilesApp.clickCount = 0;
 tilesApp.matchCount = 0;
+tilesApp.totalClick = 0;
 
-tilesApp.setColours = function() {
-    for (let i=0; i<16; i++) {
-        $(`#${i}`).on('click', function() {
-            $(this).removeClass('black');
-            const colour = $(this).data('colour');
+tilesApp.getColours = () => {
+    for (let i = 0; i < tilesApp.coloursArray.length; i++) {
+        const randomNumber = Math.floor(Math.random() * tilesApp.coloursArray.length);
+        const randomColour = tilesApp.coloursArray.splice(randomNumber, 1);
+        tilesApp.coloursArray.push(randomColour[0]);
+    }
+}
+
+tilesApp.setColours = function () {
+    for (let i = 0; i < tilesApp.coloursArray.length; i++) {
+        $(`#${i}`).addClass(tilesApp.coloursArray[i]);
+
+        $(`#${i}`).on('click', function () {
             const thisID = $(this).attr('id');
             if (thisID !== tilesApp.spanID[0] && thisID !== tilesApp.spanID[1]) {
-                tilesApp.clickCount++;
-                tilesApp.spanColour.push(colour);
+                $(this).removeClass('black');
+                tilesApp.spanColour.push(tilesApp.coloursArray[i]);
                 tilesApp.spanID.push(thisID);
+                tilesApp.clickCount++;
+                tilesApp.totalClick++;
+                tilesApp.matchCheck();
             }
-            // console.log('ListenerClick', tilesApp.clickCount);
-            // console.log('ListenerSpanColour', tilesApp.spanColour);
-            // console.log('ListenerSpanID', tilesApp.spanID);
-            tilesApp.matchCheck();
         })
     }
 }
 
 tilesApp.matchCheck = () => {
     if (tilesApp.clickCount === 2) {
-        setTimeout(function() {
+        setTimeout(function () {
             if (tilesApp.spanColour[0] !== tilesApp.spanColour[1]) {
                 $(`#${tilesApp.spanID[0]}`).addClass('black');
                 $(`#${tilesApp.spanID[1]}`).addClass('black');
+
             } else {
+                if ($(document).width() !== 320) {
+                    $(`#${tilesApp.spanID[1]}`).addClass('vibrate-1');
+                    $(`#${tilesApp.spanID[0]}`).addClass('vibrate-1');
+                }
                 $(`#${tilesApp.spanID[0]}`).off('click');
                 $(`#${tilesApp.spanID[1]}`).off('click');
                 tilesApp.matchCount++;
@@ -42,26 +55,38 @@ tilesApp.matchCheck = () => {
             tilesApp.spanColour = [];
             tilesApp.spanID = [];
             tilesApp.clickCount = 0;
-            // console.log('Check', tilesApp.clickCount);
-            // console.log('Check', tilesApp.spanColour);
-            // console.log('Check', tilesApp.spanID);
         }, 200)
     }
 }
 
 tilesApp.matchComplete = () => {
-    if (tilesApp.matchCount === 8) {
+    if (tilesApp.matchCount === (tilesApp.coloursArray.length / 2)) {
         $('.congrats').html(`
         <p>Congratulations!</p>
         <ol>
-            <li>You have matched the tiles.</li>
-            <li>Reload <span>tiles</span> to play again.</li>
+            <li>You have matched <span>Tiles</span> in ${tilesApp.totalClick / 2} attempts!</li>
+            <li>Play <span>Tiles</span> in continuous mode @320px.</li>
         </ol>
+        <button>Play Again?</button>
         `);
+
+        $('html, body').animate({
+            scrollTop: $("#congrats").offset().top
+        }, 1000);
+
+        $('button').on('click', function () {
+            location.reload();
+        })
+
+        //Reload automatically on match in CONTINUOUS MODE
+        if ($(document).width() === 320) {
+            location.reload();
+        }
     }
 }
 
 tilesApp.init = () => {
+    tilesApp.getColours();
     tilesApp.setColours();
 }
 

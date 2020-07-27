@@ -1,43 +1,26 @@
 @media (max-width: 1250px) {
     .text {
-        // position: static;
-        // width: 60%;
-        margin-top: 40px;
         border: 0.5px dotted black;
+        margin-top: 40px;
         @include mediaStyle;
-
-        p {
-            // width: 25%;
-            // text-align: center;
-            // text-decoration: none;
-            // border-bottom: 2px solid black;
-            // margin: 0 auto;
-        }
 
         ol {
             padding-left: 30px;
         }
     }
 
-    //add mixins
     .congrats {
-        // position: static;
-        // width: 60%;
-        margin-bottom: 40px;
         // border: 0.5px dotted black;
+        margin-bottom: 40px;
         @include mediaStyle;
 
-        p {
-            // width: 30%;
-            // text-align: center;
-            // text-decoration: none;
-            // border-bottom: 2px solid black;
-            // margin: 0 auto;
+        ol {
+            text-align: center;
         }
 
-        ol {
-            // padding-left: 30px;
-            text-align: center;
+        button {
+            display: block;
+            margin: 0 auto;
         }
     }
 
@@ -53,6 +36,7 @@
     }
 }
 
+// CONTINUOUS MODE
 @media (max-width: 320px) {
     .tiles {
         gap: 0;

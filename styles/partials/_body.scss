@@ -8,13 +8,11 @@ html {
 }
 
 body {
+    min-height: 100vh;
     font-size: 2rem;
     font-family: 'Fredericka the Great', cursive;
     background: linear-gradient(to right, darkorange, gold);
-
     position: relative;
-    // border: 5px solid red;
-    min-height: 100vh;
 }
 
 .wrapper {
@@ -24,41 +22,18 @@ body {
 }
 
 header {
-    // min-height: 10vh;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
     @include colourStyle;
     
     h1 {
+        text-align: center;
         text-transform: uppercase;
         letter-spacing: 20px;
-
-        text-align: center;
         padding: 15px 0;
     }
 }
 
 .text {
     @include textStyle;
-    // letter-spacing: 3px;
-    // position: absolute;
-    // top: 25%;
-    // left: 5%;
-    // width: 20%;
-    // border: 1px solid green;
-
-    p {
-        // width: 55%;
-
-        // border-bottom: 2px solid black;
-    }
-
-    // li {
-    //     list-style-position: inside;
-    //     list-style-type: square;
-    //     margin: 10px 0;
-    // }
 }
 
 .tiles {
@@ -109,38 +84,17 @@ header {
 
 .congrats {
     @include textStyle;
-    // letter-spacing: 3px;
-    // position: absolute;
     top: 50%;
-    // left: 5%;
-    // width: 20%;
-    // border: 1px solid green;
-
-    p {
-        // width: 73%;
-
-        // border-bottom: 2px solid black;
-    }
 
     span {
         text-transform: uppercase;
     }
 
-    li {
-        // list-style-position: inside;
-        // list-style-type: square;
-        // margin: 10px 0;
-
-    }
-
     button {
         border: none;
-        padding: 5px 10px;
         cursor: pointer;
+        padding: 5px 10px;
         @include colourStyle;
-
-        // display: block;
-        // margin: 0 auto;
 
         &:hover, &:focus {
             background-color: gold;
@@ -150,7 +104,6 @@ header {
 }
 
 footer {
-    // background-color: crimson;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -159,8 +112,6 @@ footer {
 
     p {
         text-align: center;
-        // use variable
-        // color: gold;
         letter-spacing: 2px;
     }
 }
