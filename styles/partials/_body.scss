@@ -132,6 +132,21 @@ header {
         // margin: 10px 0;
 
     }
+
+    button {
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        @include colourStyle;
+
+        // display: block;
+        // margin: 0 auto;
+
+        &:hover, &:focus {
+            background-color: gold;
+            color: crimson;
+        }
+    }
 }
 
 footer {
