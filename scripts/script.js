@@ -41,7 +41,6 @@ tilesApp.matchCheck = () => {
             if (tilesApp.spanColour[0] !== tilesApp.spanColour[1]) {
                 $(`#${tilesApp.spanID[0]}`).addClass('black');
                 $(`#${tilesApp.spanID[1]}`).addClass('black');
-
             } else {
                 if ($(document).width() !== 320) {
                     $(`#${tilesApp.spanID[1]}`).addClass('vibrate-1');
