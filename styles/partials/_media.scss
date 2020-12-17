@@ -29,6 +29,12 @@
     }
 }
 
+@media (max-height: 800px) {
+    footer {
+        position: static;
+    }
+}
+
 @media (max-width: 700px) {
     .tiles {
         grid-template-columns: repeat(2, 120px);
