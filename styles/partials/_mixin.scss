@@ -1,15 +1,16 @@
+$blackColour: rgba(0, 0, 0, 0.7);
+
 @mixin colourStyle {
     background-color: crimson;
     color: gold;
 }
 
 @mixin textStyle {
-    letter-spacing: 3px;
+    letter-spacing: 0.3rem;
     position: absolute;
     top: 25%;
     left: 5%;
     width: 20%;
-    // border: 1px solid green;
 
     p {
         text-decoration: underline;

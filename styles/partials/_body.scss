@@ -8,11 +8,13 @@ html {
 }
 
 body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 40px;
     min-height: 100vh;
     font-size: 2rem;
     font-family: 'Fredericka the Great', cursive;
     background: linear-gradient(to right, darkorange, gold);
-    position: relative;
 }
 
 .wrapper {
@@ -27,8 +29,8 @@ header {
     h1 {
         text-align: center;
         text-transform: uppercase;
-        letter-spacing: 20px;
-        padding: 15px 0;
+        letter-spacing: 2rem;
+        padding: 10px 0;
     }
 }
 
@@ -43,10 +45,19 @@ header {
     justify-content: center;
     align-content: center;
     gap: 40px;
-    margin: 40px auto;
+
+    .tile {
+        &:focus {
+            outline: none;
+        }
+
+        &:focus-visible {
+            outline: 5px solid $blackColour;
+        }
+    }
 
     .tile.black {
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: $blackColour;
     }
 
     .gold {
@@ -91,27 +102,25 @@ header {
     }
 
     button {
+        @include colourStyle;
         border: none;
         cursor: pointer;
         padding: 5px 10px;
-        @include colourStyle;
 
         &:hover, &:focus {
             background-color: gold;
             color: crimson;
+            outline: 2px solid crimson;
         }
     }
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 10px 0;
     @include colourStyle;
+    padding: 10px 0;
 
     p {
         text-align: center;
-        letter-spacing: 2px;
+        letter-spacing: 0.2rem;
     }
 }

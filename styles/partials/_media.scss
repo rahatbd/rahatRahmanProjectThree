@@ -1,18 +1,15 @@
 @media (max-width: 1250px) {
     .text {
-        border: 0.5px dotted black;
-        margin-top: 40px;
         @include mediaStyle;
-
-        ol {
-            padding-left: 30px;
-        }
+        margin-bottom: 40px;
     }
 
     .congrats {
-        // border: 0.5px dotted black;
-        margin-bottom: 40px;
         @include mediaStyle;
+
+        p {
+            margin-top: 40px;
+        }
 
         ol {
             text-align: center;
@@ -23,22 +20,22 @@
             margin: 0 auto;
         }
     }
-
-    footer {
-        position: static;
-    }
-}
-
-@media (max-height: 800px) {
-    footer {
-        position: static;
-    }
 }
 
 @media (max-width: 700px) {
+    .text {
+        width: 90%;
+    }
+
     .tiles {
         grid-template-columns: repeat(2, 120px);
         grid-template-rows: repeat(8, 120px);
+    }
+
+    footer {
+        span {
+            display: block;
+        }
     }
 }
 

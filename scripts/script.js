@@ -9,35 +9,43 @@ tilesApp.clickCount = 0;
 tilesApp.matchCount = 0;
 tilesApp.totalClick = 0;
 
-tilesApp.getColours = () => {
-    for (let i = 0; i < tilesApp.coloursArray.length; i++) {
-        const randomNumber = Math.floor(Math.random() * tilesApp.coloursArray.length);
-        const randomColour = tilesApp.coloursArray.splice(randomNumber, 1);
-        tilesApp.coloursArray.push(randomColour[0]);
+//Fisher–Yates shuffle algorithm
+tilesApp.shuffleColours = () => {
+    for (let i = tilesApp.coloursArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [tilesApp.coloursArray[i], tilesApp.coloursArray[j]] = [tilesApp.coloursArray[j], tilesApp.coloursArray[i]];
     }
 }
 
-tilesApp.setColours = function () {
+tilesApp.setColours = function() {
     for (let i = 0; i < tilesApp.coloursArray.length; i++) {
         $(`#${i}`).addClass(tilesApp.coloursArray[i]);
-
-        $(`#${i}`).on('click', function () {
-            const thisID = $(this).attr('id');
-            if (thisID !== tilesApp.spanID[0] && thisID !== tilesApp.spanID[1]) {
-                $(this).removeClass('black');
+        $(`#${i}`).on('click', function() {
+            const tile = this;
+            const tileID = $(this).attr('id');
+            setColour(tile, tileID);
+        })
+        $(`#${i}`).on('keydown', function(event) {
+            const tile = this;
+            const tileID = $(this).attr('id');
+            if (event.keyCode === 13) setColour(tile, tileID);
+        })
+        const setColour = (tile, tileID) => {
+            if (tileID !== tilesApp.spanID[0] && tileID !== tilesApp.spanID[1]) {
+                $(tile).removeClass('black');
                 tilesApp.spanColour.push(tilesApp.coloursArray[i]);
-                tilesApp.spanID.push(thisID);
+                tilesApp.spanID.push(tileID);
                 tilesApp.clickCount++;
                 tilesApp.totalClick++;
                 tilesApp.matchCheck();
             }
-        })
+        }
     }
 }
 
 tilesApp.matchCheck = () => {
     if (tilesApp.clickCount === 2) {
-        setTimeout(function () {
+        setTimeout(function() {
             if (tilesApp.spanColour[0] !== tilesApp.spanColour[1]) {
                 $(`#${tilesApp.spanID[0]}`).addClass('black');
                 $(`#${tilesApp.spanID[1]}`).addClass('black');
@@ -73,7 +81,7 @@ tilesApp.matchComplete = () => {
             scrollTop: $("#congrats").offset().top
         }, 1000);
 
-        $('button').on('click', function () {
+        $('button').on('click', function() {
             location.reload();
         })
 
@@ -85,10 +93,10 @@ tilesApp.matchComplete = () => {
 }
 
 tilesApp.init = () => {
-    tilesApp.getColours();
+    tilesApp.shuffleColours();
     tilesApp.setColours();
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
     tilesApp.init();
 })
